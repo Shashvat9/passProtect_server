@@ -1,5 +1,4 @@
-api_key = "dp123"
-url="https://drishtiprabha.000webhostapp.com/android_api.php"
+
 
 # to validate \(^_^)/
  1. set validate = 1 in post
