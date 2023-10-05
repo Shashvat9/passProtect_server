@@ -64,7 +64,18 @@ url="https://drishtiprabha.000webhostapp.com/android_api.php"
     code = 12 > server error
 
 #  to get password
-    1. set 
+    1. set get_pass = 1
+
+    2.  pass this json to api
+        {
+            "api_key":"",
+            "name":"",
+            "email":"",
+            "password":""
+        }
+    CODES:
+    code = 130 > data
+    code = 140 > query execution error
 
 
 
