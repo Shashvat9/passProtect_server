@@ -1,5 +1,5 @@
 <?php
-    $con = mysqli_connect("localhost","id20839964_root","Images@123","id20839964_images");
+    $con = mysqli_connect("host name","user name","password","db_name");
     if($con->connect_error)
     {
         echo mysqli_connect_error();
