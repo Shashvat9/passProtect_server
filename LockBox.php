@@ -175,17 +175,22 @@ function get_pass($email){
         
         $json_with_code = array("code" => "130", "data" => $json);
         $jsonstring = json_encode($json_with_code);
-        echo $jsonstring;
+        json_send(0,0,$jsonstring);
     } else {
         json_send(140, "error in query execution ".mysqli_error($cod));
     }
 }
 
 
-function json_send($code,$message)
+function json_send($code=0,$message=0,$jsondata=0)
 {
-    $json_arr=array("code"=>$code,"message"=>$message);
-    $json=json_encode($json_arr);
-    echo base64_encode($json);
+    if($jsondata==0){
+        $json_arr=array("code"=>$code,"message"=>$message);
+        $json=json_encode($json_arr);
+        echo base64_encode($json);
+    }
+    else{
+        echo base64_encode($jsondata);
+    }
 }
 ?>
