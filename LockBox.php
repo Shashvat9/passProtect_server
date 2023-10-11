@@ -186,6 +186,6 @@ function json_send($code,$message)
 {
     $json_arr=array("code"=>$code,"message"=>$message);
     $json=json_encode($json_arr);
-    echo $json;
+    echo base64_encode($json);
 }
 ?>
