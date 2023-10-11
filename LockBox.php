@@ -10,8 +10,9 @@
     }
 
     if (strtoupper($_SERVER["REQUEST_METHOD"]) == "POST") {
-        $json_st = $_POST["json"];
-        $json = json_decode($json_st, true);
+        $json_st =  $_POST["json"];
+        $de_json_st = base64_decode($json_st);
+        $json = json_decode($de_json_st, true);
         $api_key = $json["api_key"];
         
         if (getdata($api_key) == $api_key_value) {
