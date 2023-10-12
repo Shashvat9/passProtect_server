@@ -16,11 +16,11 @@
         
         if (getdata($api_key) == $api_key_value) {
             if (isset($_POST["validate"])) {
-                validate($json["email"], $json["password"]);
+                validate(base64_encode($json["email"]), base64_encode($json["password"]));
             }
 
             if (isset($_POST["add_user"])) {
-                add_user($json["name"], $json["email"], $json["mobile"], $json["password"]);
+                add_user(base64_encode($json["name"]), base64_encode($json["email"]), base64_encode($json["mobile"]), base64_encode($json["password"]));
             }
 
             if(isset($_POST["send_mail_otp"]))
@@ -29,11 +29,11 @@
             }
             if(isset($_POST["add_pass"]))
             {
-                set_user_pass($json["user_id"],$json["pass"],$json["name"],$json["email"]);
+                set_user_pass(base64_encode($json["user_id"]),base64_encode($json["pass"]),base64_encode($json["name"]),base64_encode($json["email"]));
             }
             if(isset($_POST["get_pass"]))
             {
-                get_pass($json["email"]);
+                get_pass(base64_encode($json["email"]));
             }
         } else {
             echo "wrong api key";
@@ -175,22 +175,17 @@ function get_pass($email){
         
         $json_with_code = array("code" => "130", "data" => $json);
         $jsonstring = json_encode($json_with_code);
-        json_send(0,0,$jsonstring);
+        echo base64_encode($jsonstring);
     } else {
         json_send(140, "error in query execution ".mysqli_error($cod));
     }
 }
 
 
-function json_send($code=0,$message=0,$jsondata=0)
+function json_send($code,$message)
 {
-    if($jsondata==0){
-        $json_arr=array("code"=>$code,"message"=>$message);
-        $json=json_encode($json_arr);
-        echo base64_encode($json);
-    }
-    else{
-        echo base64_encode($jsondata);
-    }
+    $json_arr=array("code"=>$code,"message"=>$message);
+    $json=json_encode($json_arr);
+    echo base64_encode($json);
 }
 ?>
