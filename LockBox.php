@@ -1,9 +1,9 @@
 <?php
     include "libraryx.php";
 
-    $api_key_value="lock123";
+    $api_key_value="key";
 
-    $con = mysqli_connect("localhost","id20839964_root","Images@123","id20839964_images");
+    $con = mysqli_connect("host","username","pass","dbname");
     if($con->connect_error)
     {
         echo mysqli_connect_error();
