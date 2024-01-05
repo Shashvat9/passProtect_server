@@ -1,8 +1,8 @@
 <?php
     include "libraryx.php";
 
-    $obmail= new mail_to_send("vidya.gmit@gmail.com","uwrxrdoyqcrbgecb");
-    $pdf="C:/Users/rajya/Downloads/DI-SEM5REGULARWINTEREXAMINATION-2022_204520307017.pdf";
+    $obmail= new mail_to_send("","");
+    $pdf="";
     try{
         $id = $obmail->send_email("","subject","message0000");
     }
